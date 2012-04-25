@@ -1,4 +1,3 @@
-lichen
-======
+#+TITLE: Lichen
 
 A continuous multiplayer AI programming game
