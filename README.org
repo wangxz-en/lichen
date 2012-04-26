@@ -1,4 +1,4 @@
-TITLE: Lichen : Continuous AI Competition
+Lichen : Continuous AI Competition
 
 Lichen is a competitive programming game in which participants develop
 specialized client software in order to control units in a tick-based strategy
