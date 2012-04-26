@@ -8,6 +8,7 @@ setup(
 
     packages=find_packages(),
     install_requires=[
-        'Twisted',
-        'txRedis',
+        'django'
+        #'Twisted',
+        #'txRedis',
     ])
