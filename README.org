@@ -1,3 +1,64 @@
-Lichen
+#+TITLE: Lichen : Continuous AI Competition
 
-A continuous multiplayer AI programming game
+Lichen is a competitive programming game in which participants develop
+specialized client software in order to control units in a tick-based strategy
+simulation. The simulation features a number of unit-factions that endlessly
+compete for control of the field's resources. Each participant's client is
+responsible for controlling a single unit who must achieve their directives in a
+socially cooperative manner to the success of the faction as a whole. The field's
+resources are manifest by wandering regions of activated tiles called Lichen. The
+ever changing nature of the Lichen makes for an endlessly dynamic environment
+that will no doubt challenge the ability of the constitutent faction units to
+cooperate cohesively.
+
+* No Client
+  Lichen does not *and never will* provide or support any official client to the
+  game. The game is played by communicating with the game-server over the web-api
+  and it is up to the participants to develop their own client (and unit
+  logic). Whether this is a headless beowulf cluster or a next-generation 3D
+  masterpeice is entirely up to you. Chances are there are some open-source
+  projects that you can work off of or even contribute to!
+
+
+* Continuous Play
+  The game never ends. There is no way for any of the factions to "win" the
+  game. The Lichen never stop appearing and disappearing and so the goal-posts
+  never stop shifting. A discreet outcome is instead replaced with statistics and
+  trending. Even if a faction is able to accumulate orders of more points than
+  the others this would just be an anachronistic artifact as the trending will
+  always show the currently successful contenders.
+
+
+* Discreet Universe
+  The environment in which Lichen is played is a large enclosed grid-like
+  arena. Units and other elements of the game like walls occupy tiles or cells of
+  the grid and all movement is constrained to the typical four direction motif
+  of other grid-based games.
+
+  Time in Lichen advances in discreet tick intervals. In between ticks the server
+  will accumulate unit actions registered by the clients that control them. When
+  the tick finally passes actions will be simulated in a First-in First-out
+  fashion. Any unit who's action becomes invalid due to an earlier acting unit
+  will simply pass for that tick. For example, if two units attempt to move into
+  the same tile, only the quicker of the two will succeed. The other will do
+  nothing.
+
+
+* Roaming Energy
+  The game's resource, over which the factions compete, are called
+  Lichen. Imagine the game's two-dimensional arena as a thin-slice or membrane in
+  a three-dimensional space. The Lichen are amorphous creatures that slowly drift
+  through the 3D space. While invisible to inhabitants of the two-dimensional
+  space, as they pass through the tiles of the arena, they transfer energy into
+  the tiles. This energy can then be harvested by units in the game. Since tiles
+  are only hot while the Lichen is present, units must ever continue their
+  pursuit these energy hotspots as they fade in, out and change position.
+
+  Here is an artist depiction of what it might look like as a Lichen drifts past
+  a wall requiring the harvesting units (and their convoy) to relocate on the other
+  side of a wall:
+
+  [[https://github.com/lichen/lichen/wiki/images/lichen.png]]
+
+
+  
