@@ -11,9 +11,12 @@ class Cell(models.Model):
     y = models.IntegerField()
     map = models.ForeignKey(Map)
 
+    class Meta:
+        unique_together = ('x', 'y', 'map')
+
 
 class Wall(Cell):
-    pass
+    destructible = models.BooleanField(default=False)
 
 
 class Unit(Cell):

@@ -10,6 +10,7 @@ setup(
     install_requires=[
         'django',
         'django-tastypie',
+        'south',
         #'Twisted',
         #'txRedis',
     ])
