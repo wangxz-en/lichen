@@ -8,7 +8,8 @@ setup(
 
     packages=find_packages(),
     install_requires=[
-        'django'
+        'django',
+        'django-tastypie',
         #'Twisted',
         #'txRedis',
     ])
