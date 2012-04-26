@@ -6,7 +6,15 @@ class Map(models.Model):
     height = models.IntegerField()
 
 
-class Wall(models.Model):
+class Cell(models.Model):
     x = models.IntegerField()
     y = models.IntegerField()
     map = models.ForeignKey(Map)
+
+
+class Wall(Cell):
+    pass
+
+
+class Unit(Cell):
+    type = models.CharField(max_length=30)
