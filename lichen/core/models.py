@@ -31,10 +31,15 @@ class Unit(Cell):
         pass
 
 
-class Lichen(Point):
+class Lichen(models.Model):
     '''Roaming energy source
 
     For now, all lichens are spherical
     '''
 
-    diameter = models.IntegerField(default=3)
+
+class LichenTile(Point):
+    lichen = models.OneToManyField(Lichen)
+
+    class Meta:
+        unique_together = ('x', 'y', 'map')
