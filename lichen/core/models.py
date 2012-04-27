@@ -42,11 +42,17 @@ class Lichen(models.Model):
     '''Roaming energy source
     '''
 
-    x_speed = models.FloatField(default=partial(random.choice, [1, -1]))
+    x_speed = models.FloatField(default=random_speed)
     y_speed = models.FloatField(default=random_speed)
-    z_speed = models.FloatField(default=random_speed)
+    z_speed = models.FloatField(default=partial(random.choice, [-0.05, -0.05]))
 
     max_tiles = models.IntegerField(default=5)
+
+    def __init__(self, *args, **kwargs):
+        super(Lichen, self).__init__(*args, **kwargs)
+
+        tile = LichenTile(lichen=self)
+        tile.save()
 
 
 class LichenTile(Point):
@@ -54,3 +60,4 @@ class LichenTile(Point):
 
     class Meta:
         unique_together = ('x', 'y', 'map')
+
