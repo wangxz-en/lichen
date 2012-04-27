@@ -13,4 +13,8 @@ setup(
         'south',
     ],
     scripts=[
+        'scripts/start-txproxy',
+        'scripts/start-txwsgi',
+        'scripts/stop-txproxy',
+        'scripts/stop-txwsgi',
     ])
