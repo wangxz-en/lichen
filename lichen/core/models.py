@@ -34,8 +34,7 @@ class Unit(Cell):
         pass
 
     def move(self, x, y):
-        if 0 < self.x < self.map.width and \
-           0 < self.y < self.map.height and \
+        if 0 < self.x < self.map.width and 0 < self.y < self.map.height and \
            Cell.objects.filter(map=self.map, x=x, y=y).count() == 0:
 
             self.x = x
@@ -52,6 +51,10 @@ random_speed = partial(random.triangular, -1, 1)
 
 class Lichen(models.Model):
     '''Roaming energy source
+
+    Lichens move in 2d on the map according to x and y speeds and
+    in a third dimension by increasing or decreasing their footprint
+    on the map according to z speed.
     '''
 
     x_speed = models.FloatField(default=random_speed)
