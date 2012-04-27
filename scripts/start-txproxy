@@ -1,0 +1,9 @@
+#!/bin/bash
+
+stop-txproxy
+sudo twistd --logfile="$VIRTUAL_ENV/var/log/txproxy.log" --pidfile="$VIRTUAL_ENV/var/run/txproxy.pid" -y "$VIRTUAL_ENV/etc/txweb/txproxy.tac"
+sleep 1
+if [ -f "$VIRTUAL_ENV/var/run/txproxy.pid" ]
+   then
+    echo "Started new server PID:`sudo cat $VIRTUAL_ENV/var/run/txproxy.pid`"
+fi

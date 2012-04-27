@@ -1,0 +1,10 @@
+#!/bin/bash
+
+stop-txwsgi
+PYTHONPATH="$VIRTUAL_ENV/etc/txweb" 
+twistd --logfile="$VIRTUAL_ENV/var/log/txwsgi.log" --pidfile="$VIRTUAL_ENV/var/run/txwsgi.pid" web --port=8088 --wsgi=wsgi.application
+sleep 1
+if [ -f "$VIRTUAL_ENV/var/run/txwsgi.pid" ]
+   then
+    echo "Started new server PID:`cat $VIRTUAL_ENV/var/run/txwsgi.pid`"
+fi
