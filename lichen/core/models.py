@@ -30,12 +30,24 @@ class Wall(Cell):
 class Unit(Cell):
     type = models.CharField(max_length=30)
 
-    def move(self, x, y):
+    class InvalidMove(Exception):
         pass
 
+    def move(self, x, y):
+        if 0 < self.x < self.map.width and \
+           0 < self.y < self.map.height and \
+           Cell.objects.filter(map=self.map, x=x, y=y).count() == 0:
 
-def random_speed():
-    return random.triangular(-1, 1)
+            self.x = x
+            self.y = y
+
+            self.save()
+
+        else:
+            raise self.InvalidMove()
+
+
+random_speed = partial(random.triangular, -1, 1)
 
 
 class Lichen(models.Model):
