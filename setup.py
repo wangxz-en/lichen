@@ -11,6 +11,6 @@ setup(
         'django',
         'django-tastypie',
         'south',
-        #'Twisted',
-        #'txRedis',
+    ],
+    scripts=[
     ])
