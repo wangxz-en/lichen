@@ -33,13 +33,14 @@ class Unit(Cell):
 
 class Lichen(models.Model):
     '''Roaming energy source
-
-    For now, all lichens are spherical
     '''
+
+    z_speed = models.FloatField(default=0.1)
+    max_tiles = models.IntegerField(default=5)
 
 
 class LichenTile(Point):
-    lichen = models.OneToManyField(Lichen)
+    lichen = models.ForeignKey(Lichen)
 
     class Meta:
         unique_together = ('x', 'y', 'map')
