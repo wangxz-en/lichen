@@ -35,7 +35,7 @@ class Unit(Cell):
 
 
 def random_speed():
-    random.triangular(-1, 1)
+    return random.triangular(-1, 1)
 
 
 class Lichen(models.Model):
@@ -48,16 +48,9 @@ class Lichen(models.Model):
 
     max_tiles = models.IntegerField(default=5)
 
-    def __init__(self, *args, **kwargs):
-        super(Lichen, self).__init__(*args, **kwargs)
-
-        tile = LichenTile(lichen=self)
-        tile.save()
-
 
 class LichenTile(Point):
     lichen = models.ForeignKey(Lichen)
 
     class Meta:
         unique_together = ('x', 'y', 'map')
-
