@@ -8,9 +8,11 @@ setup(
 
     packages=find_packages(),
     install_requires=[
-        'django',
-        'django-tastypie',
-        'south',
+        'django==1.4',
+        'south==0.7.4',
+        'django-tastypie==0.9.11',
+        'Twisted==12.0.0',
+        'gunicorn==0.14.2',
     ],
     scripts=[
         'scripts/start-txproxy',
