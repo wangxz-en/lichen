@@ -1,9 +1,11 @@
+import random
+
 from django.db import models
 
 
 class Map(models.Model):
-    width = models.IntegerField()
-    height = models.IntegerField()
+    width = models.IntegerField(default=100)
+    height = models.IntegerField(default=100)
 
 
 class Point(models.Model):
@@ -31,11 +33,18 @@ class Unit(Cell):
         pass
 
 
+def random_speed():
+    random.triangular(-1, 1)
+
+
 class Lichen(models.Model):
     '''Roaming energy source
     '''
 
-    z_speed = models.FloatField(default=0.1)
+    x_speed = models.FloatField(default=lambda: random.choice([1, -1]))
+    y_speed = models.FloatField(default=random_speed)
+    z_speed = models.FloatField(default=random_speed)
+
     max_tiles = models.IntegerField(default=5)
 
 
