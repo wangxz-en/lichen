@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ -f "$VIRTUAL_ENV/var/run/txproxy.pid" ]
+   then
+     PID=`sudo cat "$VIRTUAL_ENV/var/run/txproxy.pid"`
+     echo "Killing existing PID:$PID"
+     sudo kill $PID;
+fi

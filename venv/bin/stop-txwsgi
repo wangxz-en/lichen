@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ -f "$VIRTUAL_ENV/var/run/txwsgi.pid" ]
+   then
+     PID=`cat "$VIRTUAL_ENV/var/run/txwsgi.pid"`
+     echo "Killing existing PID:$PID"
+     kill $PID;
+fi

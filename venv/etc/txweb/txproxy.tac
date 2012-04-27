@@ -2,7 +2,7 @@ from twisted.application import internet, service
 from twisted.web import static, server, vhost, script, proxy
 
 # define proxy target
-rproxy = proxy.ReverseProxyResource('localhost', 8080, '')
+rproxy = proxy.ReverseProxyResource('localhost', 8088, '')
 
 # create virtualhosting
 root = vhost.NameVirtualHost()
