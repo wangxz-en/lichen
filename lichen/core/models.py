@@ -1,4 +1,5 @@
 import random
+from functools import partial
 
 from django.db import models
 
@@ -41,7 +42,7 @@ class Lichen(models.Model):
     '''Roaming energy source
     '''
 
-    x_speed = models.FloatField(default=lambda: random.choice([1, -1]))
+    x_speed = models.FloatField(default=partial(random.choice, [1, -1]))
     y_speed = models.FloatField(default=random_speed)
     z_speed = models.FloatField(default=random_speed)
 
