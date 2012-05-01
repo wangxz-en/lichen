@@ -9,6 +9,10 @@ class Map(models.Model):
     height = models.IntegerField(default=100)
 
 
+class Faction(models.Model):
+    map = models.ForeignKey(Map)
+
+
 class Point(models.Model):
     x = models.IntegerField()
     y = models.IntegerField()
@@ -29,6 +33,7 @@ class Wall(Cell):
 
 class Unit(Cell):
     type = models.CharField(max_length=30)
+    faction = models.ForeignKey(Faction)
 
     class InvalidMove(Exception):
         pass
