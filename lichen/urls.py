@@ -4,10 +4,14 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
+from core.api import MapResource
+
+
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'lichen.views.home', name='home'),
     #url(r'^lichen/', include('lichen.core.urls')),
+    url(r'^api/', include(MapResource().urls)),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
