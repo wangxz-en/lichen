@@ -9,8 +9,17 @@ class Map(models.Model):
     height = models.IntegerField(default=100)
 
 
+class Message(models.Model):
+    body = models.CharField(max_length=140)
+
+
+class Inbox(models.Model):
+    messages = models.ManyToManyField(Message)
+
+
 class Faction(models.Model):
     map = models.ForeignKey(Map)
+    inbox = models.ForeignKey(Inbox)
 
 
 class Point(models.Model):
